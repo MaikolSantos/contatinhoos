@@ -11,4 +11,4 @@ AppDataSource.initialize()
       console.log(`App is running on https://localhost:${PORT}`)
     })
   })
-  .catch((err) => console.error(err));
+  .catch((error) => console.error(error));

@@ -10,19 +10,7 @@ const dataSourceConfig = (): DataSourceOptions => {
   const databaseURL: string | undefined = process.env.DATABASE_URL;
 
   if (!databaseURL) {
-    console.log(process.env.DATABASE_URL)
     throw new Error("Env var DATABASE_URL does not exist.");
-  }
-
-  const nodeEnv: string | undefined = process.env.NODE_ENV;
-
-  if (nodeEnv === "test") {
-    return {
-      type: "sqlite",
-      database: ":memory:",
-      synchronize: true,
-      entities: [entitiesPath],
-    };
   }
 
   return {
@@ -35,6 +23,6 @@ const dataSourceConfig = (): DataSourceOptions => {
   };
 };
 
-const AppDataSource = new DataSource(dataSourceConfig());
+const AppDataSource: DataSource = new DataSource(dataSourceConfig());
 
 export { AppDataSource };
