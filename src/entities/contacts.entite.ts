@@ -12,14 +12,14 @@ class Contact {
   @PrimaryGeneratedColumn("increment")
   id: number;
 
-  @Column({ unique: true })
+  @Column({ type: "varchar", length: 125, unique: true })
   name: string;
 
-  @Column()
+  @Column({ type: "varchar", length: 127 })
   email: string;
 
-  @Column()
-  telefone: string;
+  @Column({ type: "varchar", length: 19 })
+  phone: string;
 
   @CreateDateColumn({ type: "date" })
   createdAt: string;

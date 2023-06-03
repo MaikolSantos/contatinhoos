@@ -12,14 +12,14 @@ class User {
   @PrimaryGeneratedColumn("increment")
   id: number;
 
-  @Column()
+  @Column({ type: "varchar", length: 125 })
   name: string;
 
-  @Column({ unique: true })
+  @Column({ type: "varchar", length: 127, unique: true })
   email: string;
 
-  @Column()
-  telefone: string;
+  @Column({ type: "varchar", length: 19 })
+  phone: string;
 
   @Column()
   password: string;
