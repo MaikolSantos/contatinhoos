@@ -1,7 +1,0 @@
-{
-  "editor.formatOnSave": true,
-  "python.linting.lintOnSave": false,
-  "python.testing.autoTestDiscoverOnSaveEnabled": false,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "notebook.formatOnSave.enabled": false
-}

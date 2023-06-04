@@ -5,7 +5,7 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { User } from "./users.entite.index";
+import { User } from "./users.entity";
 
 @Entity("contacts")
 class Contact {

@@ -5,7 +5,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { Contact } from "./contacts.entite";
+import { Contact } from "./contacts.entity";
 
 @Entity("users")
 class User {
