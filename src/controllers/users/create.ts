@@ -6,9 +6,9 @@ const createUserController = async (
   request: Request,
   response: Response
 ): Promise<Response> => {
-  const { name, email, phone, password }: TUserRequest = request.body;
+  const data: TUserRequest = request.body;
 
-  const newUser = await createUserService({ name, email, phone, password });
+  const newUser = await createUserService(data);
 
   return response.status(201).json(newUser);
 };

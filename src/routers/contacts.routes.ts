@@ -10,6 +10,7 @@ import {
   contactSchemaUpdate,
 } from "../schemas/contacts.schema";
 import { ensureIsOwnerMiddleware } from "../middlewares/ensureIsOwner.middleware";
+import { ensureNameAlredyExists } from "../middlewares/ensureNameAlredyExists.middleware";
 
 const contactsRoutes = Router();
 
@@ -18,6 +19,7 @@ contactsRoutes.use(ensureAuthMiddleware);
 contactsRoutes.post(
   "",
   ensureDataIsValidMiddleware(contactSchemaRequest),
+  ensureNameAlredyExists,
   createConctactController
 );
 
@@ -27,6 +29,7 @@ contactsRoutes.patch(
   "/:id",
   ensureIsOwnerMiddleware,
   ensureDataIsValidMiddleware(contactSchemaUpdate),
+  ensureNameAlredyExists,
   updateConctactController
 );
 

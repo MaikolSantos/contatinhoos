@@ -1,6 +1,4 @@
 import { Request, Response } from "express";
-import { TUserRequest } from "../../interfaces/users.interface";
-import { createUserService } from "../../services/users/create";
 import { listConctactService } from "../../services/contacts/list";
 
 const listConctactController = async (
