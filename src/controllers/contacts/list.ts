@@ -9,8 +9,6 @@ const listConctactController = async (
 
   const contacts = await listConctactService(userId);
 
-  response.locals.contacts = contacts
-
   return response.status(200).json(contacts);
 };
 
