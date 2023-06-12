@@ -2,12 +2,13 @@ import { AppDataSource } from "../../data-source";
 import { Contact } from "../../entities/contacts.entity";
 import { User } from "../../entities/users.entity";
 import { AppError } from "../../errors";
-import { TContactsResponse } from "../../interfaces/contacts.interface";
+import { IListContacts, TContactsResponse } from "../../interfaces/contacts.interface";
 import { contactsSchemaResponse } from "../../schemas/contacts.schema";
+import { userSchemaResponse } from "../../schemas/users.schema";
 
 const listConctactService = async (
   userId: number
-): Promise<TContactsResponse> => {
+): Promise<IListContacts> => {
   const userRespository = AppDataSource.getRepository(User);
   const contactRespository = AppDataSource.getRepository(Contact);
 
@@ -25,7 +26,16 @@ const listConctactService = async (
     },
   });
 
-  return contactsSchemaResponse.parse(contacts);
+  const userResponse = userSchemaResponse.parse(user)
+
+  const contactsResponse = contactsSchemaResponse.parse(contacts);
+
+  const data = {
+    user: userResponse,
+    contacts: contactsResponse
+  }
+
+  return data;
 };
 
 export { listConctactService };

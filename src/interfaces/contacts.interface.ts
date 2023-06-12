@@ -5,10 +5,16 @@ import {
   contactSchemaRequest,
   contactsSchemaResponse,
 } from "../schemas/contacts.schema";
+import { TUserResponse } from "./users.interface";
 
 type TContact = z.infer<typeof contactSchema>;
 type TContactRequest = z.infer<typeof contactSchemaRequest>;
 type TContactsResponse = z.infer<typeof contactsSchemaResponse>;
 type TContactUpdate = DeepPartial<TContactRequest>;
 
-export { TContact, TContactRequest, TContactsResponse, TContactUpdate };
+interface IListContacts {
+  user: TUserResponse;
+  contacts: TContactsResponse;
+}
+
+export { TContact, TContactRequest, TContactsResponse, TContactUpdate, IListContacts };
