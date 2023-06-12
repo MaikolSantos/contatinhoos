@@ -4,8 +4,12 @@ import "express-async-errors";
 import { usersRoutes } from "./routers/users.routes";
 import { loginRoutes } from "./routers/login.routes";
 import { contactsRoutes } from "./routers/contacts.routes";
+import cors from "cors";
 
 const app: Application = express();
+
+app.use(cors())
+
 app.use(json());
 
 app.use("/users", usersRoutes);
